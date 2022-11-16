@@ -1,45 +1,51 @@
 (function ($) {
     "use strict";
 
-    
     //Preloader
-    $(window).on('load', function (event) {
-        $('.js-preloader').delay(500).fadeOut(500);
+    $(window).on("load", function (event) {
+        $(".js-preloader").delay(500).fadeOut(500);
     });
-    
+
     //Open Search Box
-    $('.searchbtn').on('click', function() {
-        $('.search-area').toggleClass('open');
+    $(".searchbtn").on("click", function () {
+        $(".search-area").toggleClass("open");
     });
-    $('.close-searchbox').on('click', function() {
-        $('.search-area').removeClass('open');
+    $(".close-searchbox").on("click", function () {
+        $(".search-area").removeClass("open");
     });
 
     //Count Down Timer
-    $('[data-countdown]').each(function () {
+    $("[data-countdown]").each(function () {
         var $this = $(this),
-            finalDate = $(this).data('countdown');
+            finalDate = $(this).data("countdown");
         $this.countdown(finalDate, function (event) {
-            $this.html(event.strftime('<div class="cdown day"><span class="time-count">%-D</span> <p>Days</p></div> <div class="cdown hour"><span class="time-count">%-H</span> <p>Hours</p></div> <div class="cdown minutes"><span class="time-count">%M</span> <p>Minutes</p></div> <div class="cdown second"><span class="time-count">%S</span> <p>Seconds</p></div>'));
+            $this.html(
+                event.strftime(
+                    '<div class="cdown day"><span class="time-count">%-D</span> <p>Days</p></div> <div class="cdown hour"><span class="time-count">%-H</span> <p>Hours</p></div> <div class="cdown minutes"><span class="time-count">%M</span> <p>Minutes</p></div> <div class="cdown second"><span class="time-count">%S</span> <p>Seconds</p></div>'
+                )
+            );
         });
     });
 
     //Tweenmax js
-    $('.hero-wrap').mousemove(function (e) {
+    $(".hero-wrap").mousemove(function (e) {
         var wx = $(window).width();
         var wy = $(window).height();
         var x = e.pageX - this.offsetLeft;
         var y = e.pageY - this.offsetTop;
         var newx = x - wx / 2;
         var newy = y - wy / 2;
-        $('.hero-content').each(function () {
-            var speed = $(this).attr('data-speed');
-            if ($(this).attr('data-revert')) speed *= -.4;
-            TweenMax.to($(this), 1, { x: (1 - newx * speed), y: (1 - newy * speed) });
+        $(".hero-content").each(function () {
+            var speed = $(this).attr("data-speed");
+            if ($(this).attr("data-revert")) speed *= -0.4;
+            TweenMax.to($(this), 1, {
+                x: 1 - newx * speed,
+                y: 1 - newy * speed,
+            });
         });
     });
-    
-    //Hero  Slider 
+
+    //Hero  Slider
     $(".hero-img-slider").owlCarousel({
         nav: false,
         dots: true,
@@ -55,13 +61,16 @@
         autoHeight: true,
     });
 
-    //Auction  Slider 
+    //Auction  Slider
     $(".auction-slider").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -79,17 +88,20 @@
             },
             1200: {
                 items: 3,
-            }
-        }
+            },
+        },
     });
 
-    //Popular  Slider 
+    //Popular  Slider
     $(".popular-slider").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -110,17 +122,20 @@
             },
             1400: {
                 items: 4,
-            }
-        }
+            },
+        },
     });
-    
-    //Colection  Slider 
+
+    //Colection  Slider
     $(".collection-slider").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -144,17 +159,20 @@
             },
             1400: {
                 items: 3.8,
-            }
-        }
+            },
+        },
     });
 
-    //Volume  Slider 
+    //Volume  Slider
     $(".volume-slider").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -172,17 +190,20 @@
             },
             1200: {
                 items: 3,
-            }
-        }
+            },
+        },
     });
 
-    //Testimonial  Slider 
+    //Testimonial  Slider
     $(".testimonial-slider").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -203,17 +224,20 @@
             },
             1200: {
                 items: 2,
-            }
-        }
+            },
+        },
     });
 
-    //Editor  Slider 
+    //Editor  Slider
     $(".editor-slider").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 25,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -237,17 +261,20 @@
             },
             1600: {
                 items: 4.5,
-            }
-        }
+            },
+        },
     });
 
-    //Category  Slider 
+    //Category  Slider
     $(".category-slider").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -265,17 +292,20 @@
             },
             1200: {
                 items: 3,
-            }
-        }
+            },
+        },
     });
 
-    //Author  Slider 
+    //Author  Slider
     $(".author-slider-one").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -296,15 +326,18 @@
             },
             1400: {
                 items: 4,
-            }
-        }
+            },
+        },
     });
     $(".author-slider-two").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -325,17 +358,20 @@
             },
             1400: {
                 items: 4,
-            }
-        }
+            },
+        },
     });
 
-    //Blog  Slider 
+    //Blog  Slider
     $(".blog-slider").owlCarousel({
         nav: true,
         dots: false,
         loop: true,
         margin: 20,
-        navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-next-1"></i>'],
+        navText: [
+            '<i class="flaticon-left-arrow-1"></i>',
+            '<i class="flaticon-next-1"></i>',
+        ],
         items: 1,
         thumbs: false,
         smartSpeed: 1300,
@@ -359,8 +395,8 @@
             },
             1400: {
                 items: 3.8,
-            }
-        }
+            },
+        },
     });
 
     // Price Range Slider
@@ -370,70 +406,90 @@
         max: 8000,
         values: [1200, 3000],
         slide: function (event, ui) {
-           $("#amount_one").val(ui.values[0] + " - " + " $" + ui.values[1] );
-        }
+            $("#amount_one").val(ui.values[0] + " - " + " $" + ui.values[1]);
+        },
     });
-    $("#amount_one").val("$ " + $("#slider-range").slider("values", 0) +
-        " - " + "$ " +  $("#slider-range").slider("values", 1));
+    $("#amount_one").val(
+        "$ " +
+            $("#slider-range").slider("values", 0) +
+            " - " +
+            "$ " +
+            $("#slider-range").slider("values", 1)
+    );
 
     //sticky Header
     var wind = $(window);
-    var sticky = $('.header-wrap');
-    wind.on('scroll', function () {
+    var sticky = $(".header-wrap");
+    wind.on("scroll", function () {
         var scroll = wind.scrollTop();
         if (scroll < 100) {
-            sticky.removeClass('sticky');
+            sticky.removeClass("sticky");
         } else {
-            sticky.addClass('sticky');
+            sticky.addClass("sticky");
         }
     });
 
     // Responsive mmenu
-    $(window).on('resize', function() {
-        if($(window).width() <= 1199) {
-            $('.collapse.navbar-collapse').removeClass('collapse');
-        }else{
-            $('.navbar-collapse').addClass('collapse');
+    $(window).on("resize", function () {
+        if ($(window).width() <= 1199) {
+            $(".collapse.navbar-collapse").removeClass("collapse");
+        } else {
+            $(".navbar-collapse").addClass("collapse");
         }
     });
-    $('.mobile-menu a').on('click', function() {
-        $('.main-menu-wrap').addClass('open');
-        $('.collapse.navbar-collapse').removeClass('collapse');
+    $(".mobile-menu a").on("click", function () {
+        $(".main-menu-wrap").addClass("open");
+        $(".collapse.navbar-collapse").removeClass("collapse");
     });
 
-    $('.mobile_menu a').on('click', function () {
-        $(this).parent().toggleClass('open');
-        $('.main-menu-wrap').toggleClass('open');
+    $(".mobile_menu a").on("click", function () {
+        $(this).parent().toggleClass("open");
+        $(".main-menu-wrap").toggleClass("open");
     });
 
-    $('.menu-close').on('click', function () {
-        $('.main-menu-wrap').removeClass('open')
+    $(".menu-close").on("click", function () {
+        $(".main-menu-wrap").removeClass("open");
     });
-    $('.mobile-top-bar').on('click', function () {
-        $('.header-top').addClass('open')
+    $(".mobile-top-bar").on("click", function () {
+        $(".header-top").addClass("open");
     });
-    $('.close-header-top button').on('click', function () {
-        $('.header-top').removeClass('open')
+    $(".close-header-top button").on("click", function () {
+        $(".header-top").removeClass("open");
     });
-    var $offcanvasNav = $('.navbar-nav'),
-    $offcanvasNavSubMenu = $offcanvasNav.find('.dropdown-menu');
-    $offcanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="ri-arrow-down-s-line"></i></span>');
+    var $offcanvasNav = $(".navbar-nav"),
+        $offcanvasNavSubMenu = $offcanvasNav.find(".dropdown-menu");
+    $offcanvasNavSubMenu
+        .parent()
+        .prepend(
+            '<span class="menu-expand"><i class="ri-arrow-down-s-line"></i></span>'
+        );
     $offcanvasNavSubMenu.slideUp();
-    $offcanvasNav.on('click', 'li a, li .menu-expand', function (e) {
+    $offcanvasNav.on("click", "li a, li .menu-expand", function (e) {
         var $this = $(this);
-        if (($this.attr('href') === '#' || $this.hasClass('menu-expand'))) {
+        if ($this.attr("href") === "#" || $this.hasClass("menu-expand")) {
             e.preventDefault();
-            if ($this.siblings('ul:visible').length) {
-                $this.siblings('ul').slideUp('slow');
+            if ($this.siblings("ul:visible").length) {
+                $this.siblings("ul").slideUp("slow");
             } else {
-                $this.closest('li').siblings('li').find('ul:visible').slideUp('slow');
-                $this.siblings('ul').slideDown('slow');
+                $this
+                    .closest("li")
+                    .siblings("li")
+                    .find("ul:visible")
+                    .slideUp("slow");
+                $this.siblings("ul").slideDown("slow");
             }
         }
-        if ($this.is('a') || $this.is('span') || $this.attr('class').match(/\b(menu-expand)\b/)) {
-            $this.parent().toggleClass('menu-open');
-        } else if ($this.is('li') && $this.attr('class').match(/\b('dropdown-menu')\b/)) {
-            $this.toggleClass('menu-open');
+        if (
+            $this.is("a") ||
+            $this.is("span") ||
+            $this.attr("class").match(/\b(menu-expand)\b/)
+        ) {
+            $this.parent().toggleClass("menu-open");
+        } else if (
+            $this.is("li") &&
+            $this.attr("class").match(/\b('dropdown-menu')\b/)
+        ) {
+            $this.toggleClass("menu-open");
         }
     });
 
@@ -442,52 +498,53 @@
 
     //Back To top
     function BackToTop() {
-        $('.back-to-top').on('click', function () {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 100);
+        $(".back-to-top").on("click", function () {
+            $("html, body").animate(
+                {
+                    scrollTop: 0,
+                },
+                100
+            );
             return false;
         });
 
         $(document).scroll(function () {
             var y = $(this).scrollTop();
             if (y > 600) {
-                $('.back-to-top').fadeIn();
-                $('.back-to-top').addClass('open');
+                $(".back-to-top").fadeIn();
+                $(".back-to-top").addClass("open");
             } else {
-                $('.back-to-top').fadeOut();
-                $('.back-to-top').removeClass('open');
+                $(".back-to-top").fadeOut();
+                $(".back-to-top").removeClass("open");
             }
         });
     }
     BackToTop();
-
 })(jQuery);
-
 
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
-    localStorage.setItem('nedo_theme', themeName);
+    localStorage.setItem("nedo_theme", themeName);
     document.documentElement.className = themeName;
 }
 
-// function to toggle between light and dark theme
-function toggleTheme() {
-    if (localStorage.getItem('nedo_theme') === 'theme-dark') {
-        setTheme('theme-light');
-    } else {
-        setTheme('theme-dark');
-    }
-}
+// // function to toggle between light and dark theme
+// function toggleTheme() {
+//     if (localStorage.getItem('nedo_theme') === 'theme-dark') {
+//         setTheme('theme-light');
+//     } else {
+//         setTheme('theme-dark');
+//     }
+// }
 
-// Immediately invoked function to set the theme on initial load
-(function () {
-    if (localStorage.getItem('nedo_theme') === 'theme-dark') {
-        setTheme('theme-dark');
-        document.getElementById('slider').checked = false;
-    } else {
-        setTheme('theme-light');
-        document.getElementById('slider').checked = true;
-    }
-})();
-
+// // Immediately invoked function to set the theme on initial load
+// (function () {
+//     if (localStorage.getItem('nedo_theme') === 'theme-dark') {
+//         setTheme('theme-dark');
+//         document.getElementById('slider').checked = false;
+//     } else {
+//         setTheme('theme-light');
+//         document.getElementById('slider').checked = true;
+//     }
+// })();
+setTheme("theme-dark");
